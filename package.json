@@ -1,0 +1,52 @@
+{
+  "name": "inlinecss2react",
+  "displayName": "InlineCSS2React",
+  "description": "Convert inline css to a React style object",
+  "version": "0.0.1",
+  "publisher": "colton",
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "inlinecss2react.convertStyle",
+      "title": "Convert Inline Style to React Style Object"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "inlinecss2react.convertStyle",
+          "when": "editorTextFocus && (resourceLangId == typescriptreact || resourceLangId == javascriptreact)",
+          "group": "1_modification"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.94.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+}
